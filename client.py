@@ -3,7 +3,8 @@ import sys
 from datetime import datetime
 from crawl_currency import *
 from update_local_id_map import *
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def process_date(date):
     t = datetime.strptime(date, "%Y-%m-%d")
