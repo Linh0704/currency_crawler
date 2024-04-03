@@ -31,18 +31,22 @@ class SimpleCrawler:
         with aiohttp.TCPConnector(ssl=False) as conn:
             currency_name = currency_name.replace("\n", "")
 
-            url = f"https://api.coinmarketcap.com/data-api/v3/cryptocurrency/historical?id={cid}&convertId=2787&timeStart={time_start}" \
+            url = f"https://api.coinmarketcap.com/data-api/v3/cryptocurrency/historical?id={cid}&convertId=2781&timeStart={time_start}" \
                   f"&timeEnd={time_end}"
+            params = {
+                'limit' : '4000',
+            }
             print(url)
             user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15"
             headers = {"User-Agent": user_agent}
-            async with aiohttp.request('GET', url, headers=headers, connector=conn) as r:
+            async with aiohttp.request('GET', url, params = params, headers=headers, connector=conn) as r:
                 if r.status != 200:
                     print(f"Url: {url}")
                     print(f"Error response with response code {r.status}")
                     return -1
                 content = await r.json(encoding='utf-8')
                 data = content['data']['quotes']
+
                 self.process_data(currency_name, data)
 
     def process_data(self, currency_name, data):
