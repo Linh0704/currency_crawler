@@ -1,3 +1,36 @@
+## SETUP
+
+### Windows
+
+Create env
+```
+python -m venv <path_to_env>
+```
+
+Activate
+```
+<path_to_env>\Scripts\activate.bat
+```
+
+### MacOS/Linux
+
+Setup
+```
+python -m venv <path_to_env>
+```
+
+Activate
+
+```
+source <path_to_env>/bin/activate
+```
+
+### After activate, install package
+```
+python -m pip install pandas asyncio aiohttp
+```
+
+
 # UPDATE USAGE
 
 ## Crawling
