@@ -1,3 +1,35 @@
+# UPDATE USAGE
+
+## Crawling
+
+```
+python client.py <start_date> <end_date>
+```
+
+From file (input selected coin in `text.txt`)
+
+```python
+python client.py 2021-01-01 2024-04-02  -f ./test.tx
+```
+
+From listed coin
+
+```python
+python client.py 2021-01-01 2024-04-02  -l <number of coin>
+```
+
+## Join selected result
+
+```python
+python join_csv.py 
+```
+
+Output file combined_data.csv
+
+
+
+# Original Source below
+
 ## A simlpe currency crawler
 
 Basically, this crawler implements the crawling of specific currency history data on https://coinmarketcap.com, and its output data format can be found on the following page：
